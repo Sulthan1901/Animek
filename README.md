@@ -50,3 +50,4 @@ Aplikasi ini menampilkan daftar pustaka anime yang memuat informasi dasar sepert
 
 
 
+
