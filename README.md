@@ -27,7 +27,7 @@ Aplikasi ini menampilkan daftar pustaka anime yang memuat informasi dasar sepert
 
 
 
-![Image](https://github.com/user-attachments/assets/b1e6a687-98ff-4c5e-9527-826476d6857e)
+![Image](https://github.com/user-attachments/assets/57be556f-df49-40e2-9901-a7f3060a9164)
 
 
 
@@ -45,6 +45,7 @@ Aplikasi ini menampilkan daftar pustaka anime yang memuat informasi dasar sepert
    ```bash
    git clone https://github.com/username/daftar-pustaka-anime.git
    cd daftar-pustaka-anime
+
 
 
 
