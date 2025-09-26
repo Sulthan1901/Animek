@@ -1,22 +1,40 @@
 # 📚 Daftar Pustaka Anime
 
-Proyek **Daftar Pustaka Anime** adalah aplikasi sederhana untuk menyimpan, menampilkan, dan mengelola daftar referensi anime yang sudah ditonton maupun yang ingin ditonton.  
-Proyek ini dibuat sebagai latihan pemrograman sekaligus dokumentasi pribadi penggemar anime.
+Proyek ini adalah aplikasi **Flutter** untuk mata kuliah **Pemrograman Mobile**.  
+Aplikasi ini menampilkan daftar pustaka anime yang memuat informasi dasar seperti judul, genre, sinopsis, dan rating.
 
 ---
 
-## 🚀 Fitur
-- Menambahkan judul anime beserta informasi detail (genre, tahun rilis, studio, rating).
-- Menampilkan daftar anime dalam bentuk tabel atau kartu.
-- Mengedit dan menghapus data anime.
-- Pencarian cepat berdasarkan judul atau genre.
-- Penyimpanan data (lokal/file/database tergantung implementasi).
+## 🚀 Fitur Utama
+- Menampilkan daftar anime dalam bentuk list/grid.
+- Detail halaman anime (judul, genre, sinopsis, rating).
+- Pencarian anime berdasarkan judul.
+- UI sederhana, responsif, dan mudah digunakan.
+- Dibangun menggunakan Flutter dengan state management sederhana.
 
 ---
 
 ## 🛠️ Teknologi yang Digunakan
-- **Frontend**: HTML, CSS, JavaScript  
-- **Backend**: Node.js / PHP / (sesuaikan dengan proyekmu)  
-- **Database**: JSON / MySQL / SQLite  
+- **Flutter** (SDK terbaru)
+- **Dart** sebagai bahasa pemrograman
+- **Material Design** untuk tampilan antarmuka
+- (Opsional) API eksternal seperti [Jikan API](https://jikan.moe/) untuk data anime
 
 ---
+
+## 📸 Tampilan Aplikasi
+> (Tambahkan screenshot aplikasi di sini setelah build berjalan)  
+Contoh:
+- Halaman daftar anime
+- Halaman detail anime
+
+---
+
+## ⚙️ Cara Menjalankan
+1. Pastikan sudah menginstall **Flutter SDK**  
+   [Install Flutter](https://docs.flutter.dev/get-started/install)
+
+2. Clone repository:
+   ```bash
+   git clone https://github.com/username/daftar-pustaka-anime.git
+   cd daftar-pustaka-anime
