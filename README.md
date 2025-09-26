@@ -23,9 +23,8 @@ Aplikasi ini menampilkan daftar pustaka anime yang memuat informasi dasar sepert
 ---
 
 ## 📸 Tampilan Aplikasi
-> (Tambahkan screenshot aplikasi di sini setelah build berjalan)  
-Contoh:
-- Halaman daftar anime
+- Halaman Sign In
+  ![Image](https://github.com/user-attachments/assets/10054eed-53b7-4ed2-b58b-1bbe242b40c3) 
 - Halaman detail anime
 
 ---
@@ -38,3 +37,4 @@ Contoh:
    ```bash
    git clone https://github.com/username/daftar-pustaka-anime.git
    cd daftar-pustaka-anime
+
