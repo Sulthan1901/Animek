@@ -1,4 +1,9 @@
+import 'package:anime_verse/screens/detail_screen.dart';
+import 'package:anime_verse/screens/favorite_screen.dart';
+import 'package:anime_verse/screens/home_screen.dart';
+import 'package:anime_verse/screens/profile_screen.dart';
 import 'package:anime_verse/screens/signin_screen.dart';
+import 'package:anime_verse/config/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Anime Verse',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -19,7 +24,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Urbanist',
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
+      routerConfig: createRouter(),
     );
   }
 }

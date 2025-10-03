@@ -1,5 +1,8 @@
+import 'package:anime_verse/config/routes.dart';
+import 'package:anime_verse/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import '../widgets/app_scaffold.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -155,6 +158,7 @@ class SignInScreen extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           // TODO: Implement sign in functionality
+                          context.go(AppRoutes.home);
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue.withValues(alpha: 0.8),
