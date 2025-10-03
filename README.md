@@ -43,8 +43,9 @@ Aplikasi ini menampilkan daftar pustaka anime yang memuat informasi dasar sepert
 
 2. Clone repository:
    ```bash
-   git clone https://github.com/username/daftar-pustaka-anime.git
+   git clone https://github.com/Sulthan1901/Animek.git
    cd daftar-pustaka-anime
+
 
 
 
