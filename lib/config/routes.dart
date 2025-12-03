@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,14 +19,32 @@ class AppRoutes {
   static const String details = '/details';
 }
 
-final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
-final GlobalKey<NavigatorState> _shellNavigatorKey =
-    GlobalKey<NavigatorState>();
-
 GoRouter createRouter() {
+  final GlobalKey<NavigatorState> rootNavigatorKey =
+      GlobalKey<NavigatorState>();
+
   return GoRouter(
-    navigatorKey: _rootNavigatorKey,
+    navigatorKey: rootNavigatorKey,
     initialLocation: AppRoutes.home,
+    redirect: (context, state) {
+      final user = FirebaseAuth.instance.currentUser;
+      final isAuthenticated = user != null;
+      final isAuthRoute =
+          state.matchedLocation == AppRoutes.signIn ||
+          state.matchedLocation == AppRoutes.signUp;
+
+      if (!isAuthenticated && !isAuthRoute) {
+        return AppRoutes.signIn;
+      }
+
+      if (isAuthenticated && isAuthRoute) {
+        return AppRoutes.home;
+      }
+
+      return null;
+    },
+    refreshListenable: AuthStateNotifier(),
+
     routes: [
       GoRoute(
         path: AppRoutes.signIn,
@@ -41,33 +60,44 @@ GoRouter createRouter() {
       GoRoute(
         path: '${AppRoutes.details}/:id',
         name: 'detail',
-        parentNavigatorKey: _rootNavigatorKey,
+        parentNavigatorKey: rootNavigatorKey,
         builder: (context, state) {
           final animeId = state.pathParameters['id'] ?? '';
           return DetailScreen(animeId: animeId);
         },
       ),
 
-      ShellRoute(
-        navigatorKey: _shellNavigatorKey,
-        builder: (context, state, child) {
-          return BottomNavigationShell(child: child);
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          return BottomNavigationShell(navigationShell: navigationShell);
         },
-        routes: [
-          GoRoute(
-            path: AppRoutes.home,
-            name: 'home',
-            builder: (context, state) => const HomeScreen(),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.home,
+                name: 'home',
+                builder: (context, state) => const HomeScreen(),
+              ),
+            ],
           ),
-          GoRoute(
-            path: AppRoutes.favorites,
-            name: 'favorite',
-            builder: (context, state) => const FavoriteScreen(),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.favorites,
+                name: 'favorite',
+                builder: (context, state) => const FavoriteScreen(),
+              ),
+            ],
           ),
-          GoRoute(
-            path: AppRoutes.profile,
-            name: 'profile',
-            builder: (context, state) => const ProfileScreen(),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.profile,
+                name: 'profile',
+                builder: (context, state) => const ProfileScreen(),
+              ),
+            ],
           ),
         ],
       ),
@@ -95,4 +125,12 @@ GoRouter createRouter() {
       ),
     ),
   );
+}
+
+class AuthStateNotifier extends ChangeNotifier {
+  AuthStateNotifier() {
+    FirebaseAuth.instance.authStateChanges().listen((_) {
+      notifyListeners();
+    });
+  }
 }
