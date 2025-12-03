@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "351034928226",
+    "project_id": "anime-verse-376bc",
+    "storage_bucket": "anime-verse-376bc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351034928226:android:7b0fadac1d8bea127d353b",
+        "android_client_info": {
+          "package_name": "com.example.pertemuan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351034928226-3qjnutcjio87qin92v2vdaq8eoqd8nlb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pertemuan",
+            "certificate_hash": "2582e014e042388b12b6c8285abaa64b5eaea864"
+          }
+        },
+        {
+          "client_id": "351034928226-tsml185mdj52qocqi7cd7ragvm82e8lg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pertemuan",
+            "certificate_hash": "0fe0b431ffa545c22ad4dfefaca9f95ff4f614e8"
+          }
+        },
+        {
+          "client_id": "351034928226-hp2k4fob6cfcbha9ki5mbkqkpjuregvg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpNuqcAGB31EzIYL9_WvoyBF4ECyJ95dI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351034928226-hp2k4fob6cfcbha9ki5mbkqkpjuregvg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
