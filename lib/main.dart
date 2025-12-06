@@ -11,7 +11,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'provider/app_state_provider.dart';
 
-void main()  async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await GoogleSignIn.instance.initialize();
@@ -38,12 +38,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => AppStateProvider(),
-      child: MaterialApp.router(
+// This widget is the root of your application.
+@override
+Widget build(BuildContext context) {
+  return ChangeNotifierProvider(
+    create: (_) => AppStateProvider(),
+    child: MaterialApp.router(
       title: 'Anime Verse',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -53,8 +53,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerConfig: createRouter(),
     ),
-    );
-  }
+  );
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
