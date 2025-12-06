@@ -33,11 +33,11 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Accept Android SDK Licenses
-        run: yes | sdkmanager --licenses
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses || true
 
-      - name: Install Latest NDK
-        run: sdkmanager --install "ndk;latest"
+      - name: Install NDK
+        run: sdkmanager --install "ndk;29.0.13113456"
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -65,7 +65,7 @@ jobs:
           storePassword=$STORE_PASSWORD
           keyPassword=$KEY_PASSWORD
           keyAlias=$KEY_ALIAS
-          storeFile=app/upload-keystore.jks
+          storeFile=upload-keystore.jks
           EOF
 
       - name: Decode google-services.json
@@ -80,7 +80,7 @@ jobs:
       - name: Get Version
         id: get_version
         run: |
-          VERSION=$(grep '^version:' pubspec.yaml | awk '{print $2}' | cut -d '+' -f 1)
+          VERSION=$(grep '^version: ' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Upload APK Artifact
@@ -102,18 +102,18 @@ jobs:
       - name: Download APK
         uses: actions/download-artifact@v4
         with:
-          pattern: anime-verse-*
-          merge-multiple: true
+          name: anime-verse-${{ needs.build.outputs.version }}
+          path: ./
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v1
         with:
           files: app-release.apk
           body: |
             ## Anime Verse v${{ needs.build.outputs.version }}
 
             ### 📱 Download
-            Download the APK below and install it on your Android device.
+            Download the APK below and install on your Android device.
 
             ### ✨ What's New
             - Automated build via GitHub Actions
@@ -121,7 +121,7 @@ jobs:
 
             ### 🔒 Security
             - Signed with release keystore
-            - Firebase production config included
+            - Firebase configured for production
             - Firestore security rules enabled
           draft: false
           prerelease: false
