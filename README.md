@@ -51,7 +51,9 @@ Aplikasi ini menampilkan daftar pustaka anime yang berisi informasi seperti judu
 ![Image](https://github.com/user-attachments/assets/7177a70f-23fe-4f0d-9fd0-f163e274ebe5)
 
 ---
-
+## 📸 Demo Aplikasi
+https://youtu.be/ki9uCmEV1ps
+---
 ## ⚙️ Cara Menjalankan
 
 1. Pastikan sudah menginstall **Flutter SDK**
@@ -72,3 +74,4 @@ Aplikasi ini menampilkan daftar pustaka anime yang berisi informasi seperti judu
    ```
 
 ---
+
